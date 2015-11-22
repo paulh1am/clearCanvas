@@ -1,6 +1,6 @@
 // var socket = io.connect('http://45.55.187.180:80/');
-//var socket = io.connect('http://localhost:8080');
-var socket = io.connect('http://45.55.201.170:80/');
+var socket = io.connect('http://localhost:8085');
+// var socket = io.connect('http://45.55.201.170:80/');
 var circx = 0;
 var squarx = 0;
 var tableCounter = 0;
