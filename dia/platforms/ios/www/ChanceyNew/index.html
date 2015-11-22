@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1">  -->
+  <title tabindex="0" >Diagramming Tool</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="foundation.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <script type="text/javascript" src="tone.js"></script>
+    <script type="text/javascript" src="Tone.Preset.js"></script>
+    <script type="text/javascript" src="socket.io.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript">
+
+
+
+
+
+  </script>
+</head>
+
+
+
+<body>
+  <div id="main" style="margin:80px 0 0 75px">
+    <text style="font-family:'MyFont';font-size:4.5rem"> Welcome to Your<br> Diagramming Tool</text><br>
+    <text style="font-size:1.7rem">choose a shape from the shapes below</text>
+
+      <div alt="square" class="base0 square" id="squareCreator"><p class="base">square</p></div>
+      <div alt="circle" class="base1 circle" id="circleCreator"><p class="base">circle</p></div>
+
+      <div id="mainDiagram">
+      
+      </div>
+
+      <div id="content2">
+      
+          <div style="margin-top:350px">
+            <div class="row">
+            <a class="button round" role="button" id="open" onclick="show2();">Open A Saved Diagram</a>
+          </div>
+          <div class="row">
+            <a class="button round" role="button" aria-label="submit form" tabindex="0" id="open" onclick="openDName();">Save Current Diagram</a>
+          </div>
+        </div>
+
+    </div>
+
+
+
+      <div role"" alt="Table Info" id="overlay">
+           <div id="boverlay">
+                <p style="font-size:21px!important; font-weight:bold!important">Name Your Table!</p>
+                <text style="font-size:18px!important; font-weight:bold!important">Table Name:</text>
+                <input tabindex="-1" type="text" name="tableName" alt="name" id="tableName"></input>
+                <text style="font-size:18px!important; font-weight:bold!important">Guests at Table:</text>
+                <input tabindex="-2" type="text" name="guestName" alt="guests" id="guestName"></input>
+
+                <a class="button round" role="button" aria-label="submit form" tabindex="0" id="save" onclick="save();" style="width:100px!important">Save</a>
+                
+
+           </div>
+      </div>
+
+
+
+
+
+<!-- /////////////////////////////////PullFromServerAndPopulateList//////////////////////////////// -->
+    
+      <div role="" aria-label="Saved Diagrams"  aria-describedby="tableName" alt="Table Info" id="overlay2">
+           <div id="saved" style="<margin-left:130px">
+                <p>Open Saved</p>
+                <ol id="listofSaved">
+                
+                </ol>
+                <!-- <button role="button" id="open" onclick="openSaved();" style="padding:5px">Open</button> -->
+                <a class="button round" role="button" aria-label="submit form" tabindex="0" id="open" onclick="hide();">Cancel</a>          
+           </div>
+      </div>
+
+      <div role="" alt="Diagram Saver" id="overlay3">
+           <div id="saveDia" style="<margin-left:130px">
+                <p>Name Your Diagram</p>
+                <text>Name:</text>
+                <div class="row">
+               <div class="large-4 columns">
+              <label>Name:
+              <input id="diagName" type="text" placeholder="table" />
+              </label>
+              </div>
+                
+                
+               <a class="button round" role="button" aria-label="submit form" tabindex="0" id="open" onclick="saveD();">save</a>          
+           </div>
+      </div>
+
+
+
+
+
+  </div>
+ </body>
+</html>
+
+
+
+
