@@ -1,0 +1,214 @@
+
+
+.ui-mobile-viewport .ui-overlay-c{
+    /*background-color: #FFBA30;*/
+}
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('UptownFunk.ttf'); 
+}
+
+
+h1{
+    font-family: 'MyFont', sans-serif !important;
+
+}
+
+
+#content2{
+
+position:relative;
+}
+
+.button-round{
+    color: white;
+    background-color: white;
+}
+
+.ui-loader {
+    display: none !important;
+}
+
+
+.ui-loader-default{
+    display: none !important;
+} 
+
+
+.ui-loader-fakefix{
+    display: none !important;
+}
+
+
+button#save.ui-btn-hidden{
+width:120px ! important 
+
+}
+
+
+#main{
+    position:relative;
+
+}
+
+#mainDiagram{
+    margin-top: 150px;
+}
+
+/*.ui-page{
+    background-color:red;
+}*/
+
+   .circle{
+        position: absolute;
+        left: 30px;
+        top: 280px;
+        width: 80px;
+        height: 80px;
+        background:#009E9E;
+        opacity: 1;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+
+        margin-left: 0px;
+        margin-top: 120px;
+
+        color: #fff;
+        font: bold 18px Helvetica,Arial,Sans-serif;
+        text-align: center;
+        
+        /*border: 3px solid #669;*/
+      }
+
+ .square {
+        position: absolute;
+        left: 30px;
+        top: 180px;
+        width: 80px;
+        height: 80px;
+        margin-left: 0px;
+        margin-top: 120px;
+
+        
+        opacity: 1;
+        
+        background-color: #FF5D5D;
+        /*border: 3px solid #669;*/
+        color: #fff;
+        font: bold 18px Helvetica,Arial,Sans-serif;
+        text-align: center;
+    
+      }
+
+
+.base {
+    font: bold 21px Helvetica,Arial,Sans-serif;
+    text-align: center;
+    color: black;
+    margin-top: 25px
+
+
+}
+
+
+#dragText {margin-top:20px;}
+
+   p.square {
+    font-size:20px; 
+    padding-top:0px !important; 
+    margin:-175px 0 0 60px;  
+    color:black;
+    text-align: left;
+    background-color: rgba(0,0,0,0) !important;
+    width: 160px;
+    height: 160px;
+    border:none;
+
+}
+
+
+   p.circle {
+    font-size:20px; 
+    padding-top:0px !important; 
+    margin:-270px 0 0 60px;  
+    color:black;
+    text-align: left;
+    background-color: rgba(0,0,0,0) !important;
+    width: 160px;
+    height: 160px;
+    border:none;
+
+}
+
+
+
+
+#overlay {
+     position:relative;
+     width:230px;
+     margin: 100px auto;
+     /*margin: 100px 50px 150px 0;*/
+     background-color: #FFC924;     
+     /*/border:1px solid #000;*/
+     padding:20px;
+     text-align:center;
+     margin-top: -400px;
+     z-index:1000;
+
+}
+
+#boverlay {
+     position:relative;
+     
+     
+
+}
+
+
+.ui-body-c, .ui-overlay-c {
+  text-shadow: 0 0 0 #fff!important;
+    }
+
+
+#overlay2 {
+     
+     width:200px;
+     margin: 100px auto;
+     /*background-color: red;*/
+     /*border:1px solid #000;*/
+     padding:15px;
+     text-align:center;
+     z-index:1000;
+}
+
+#overlay3 {
+     
+     width:200px;
+     margin: 100px auto;
+     /*background-color: red;*/
+     /*border:1px solid #000;*/
+     padding:15px;
+     text-align:center;
+      z-index:1000;
+}
+
+
+
+.ui-btn{ 
+  width:220px;
+  padding:10px  }
+
+
+
+.whateva {
+  width: 100px !important;
+  margin-left:25% ! important;
+  margin-top:5%;
+  z-index: 2000;
+  }
+
+.whateva2 {
+    z-index: 2000;
+}

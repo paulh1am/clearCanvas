@@ -1,0 +1,1 @@
+{"diagramName":"","currentDia":"\n      <g id=\"table0xox\"><text id=\"allbright\" style=\"color:black\">'qw'<div alt=\"Table Object\" id=\"table0\" class=\"square\" style=\"top: 255.679626464844px; left: 691.61767578125px;\">Drag me!</div></text></g>"}
