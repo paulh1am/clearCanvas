@@ -1,6 +1,9 @@
-// var socket = io.connect('http://45.55.187.180:80/');
 //var socket = io.connect('http://localhost:8080');
 var socket = io.connect('http://159.203.71.182:8081/');
+
+// var socket = io.connect('http://45.55.187.180:80/');
+//var socket = io.connect('http://localhost:8080');
+
 var circx = 0;
 var squarx = 0;
 var tableCounter = 0;
@@ -12,8 +15,8 @@ var audio = new Audio('bell.wav');
 var synth = new Tone.DuoSynth;
 var filter = new Tone.Filter(1000, "lowpass");
 var freeverb = new Tone.Freeverb();
-var synth2 = new Tone.MonoSynth;
-var synth2 = new Tone.MonoSynth;
+var synth2 = new Tone.NoiseSynth;
+var synth2 = new Tone.PluckSynth;
 var filter2 = new Tone.Filter(100, "lowpass");
 var freeverb2 = new Tone.Freeverb();
 var nameLabel;
@@ -21,24 +24,40 @@ var guestLabel;
 var diagramName;
 var currentDia;
 var filesG;
-var player = new Tone.Player("bell.wav");
 
 
+function  doGrid(row, col){
+  $('#setform').hide();
+  console.log("doing grid");
+  tbl = ""
+  
+  for (var i = 0; i < 10; i++) {
+    
+  };
+  // $(".grid").html(tbl);
+
+       var rows = row,
+            cols = col;
+
+        for(var i = 0; i < rows; i++) {
+            $('#gridd').append('<tr></tr>');
+            for(var j = 0; j < cols; j++) {
+                $('table').find('tr').eq(i).append('<td>'+j+','+i+'</td>');
+                $('table').find('tr').eq(i).find('td').eq(j).attr('data-row', i).attr('data-col', j);
+            }
+        }
+
+}
 
 $(document).ready(function() {
+  
 
-    doGrid(17,14  );
+
     socket.on('connect', function() {
     console.log("Connected OUCH!");
 
 
-
-
     });
-    $('.tcell').click(function(){
-
-      console.log("tCELLL");
-    })
 
    // adding a saved diagram
     
@@ -87,8 +106,6 @@ $(document).ready(function() {
 
     var elem = document.getElementById("boverlay");
     elem.style.display = "none";
-    // var elem = document.getElementById("magic");
-    // elem.style.display = "none";
     var elem = document.getElementById("overlay");
     elem.style.display = "none";
     var elem2 = document.getElementById("overlay2");
@@ -108,13 +125,13 @@ $(document).ready(function() {
  
 
 
-    synth.volume.value = -32;
+    synth.volume.value = -22;
     //connect the synth to the master output channel
     synth.setPreset("DistGit");
     synth.connect(filter);
     filter.connect(freeverb);
     freeverb.toMaster();
-    player.toMaster();
+
     synth2.volume.value = 0;
     //connect the synth to the master output channel
     synth2.setPreset("Koto");
@@ -138,45 +155,18 @@ $(document).ready(function() {
     // $('#guestName').parent().addClass("whateva2");
 });
 
-function  doGrid(row, col){
-  $('#setform').hide();
-  console.log("doing grid");
-  tbl = ""
-  
 
-
-  for (var i = 0; i < 10; i++) {
-    
-  };
-  // $(".grid").html(tbl);
-
-       var rows = row,
-            cols = col;
-
-        for(var i = 0; i < rows; i++) {
-            $('#gridd').append('<tr></tr>');
-            for(var j = 0; j < cols; j++) {
-                $('table').find('tr').eq(i).append('<td class=""><a class="tcell ui-link" role="button" onclick="gridMenu();" id='+j+","+i+'>'+j+','+i+'</a></td>');
-                $('table').find('tr').eq(i).find('td').eq(j).attr('data-row', i).attr('data-col', j);
-            }
-        }
-
-}
 function hide() {
     
     var elem = document.getElementById("boverlay");
     elem.style.display = "none";
     var elem1 = document.getElementById("overlay");
-    elem1.style.backgroundColor="white";
     elem1.style.display = "none";
-    // var elem1 = document.getElementById("magic");
-    // elem1.style.display = "none";
-    
+    elem1.style.backgroundColor="white";
     var elem2 = document.getElementById("overlay3");
     elem2.style.display = "none";
     var elem3 = document.getElementById("overlay2");
     elem3.style.display = "none";
-    content2S();
 
 
 }
@@ -202,53 +192,14 @@ function show() {
 
 function show2() {
     
- 
-    
-    // var elem2 = document.getElementById("content2");
-    // elem2.style.marginTop = "0px";
-   
 
-    var elem4 = document.getElementById("overlay2");
-    elem4.style.display = "block";
-    elem4.setAttribute("role", "alert");
-    content2();
+    var elem3 = document.getElementById("overlay2");
+    elem3.style.display = "block";
 
-}
-function gridMenu() {
-    
-    $('#current').text('YOOO');
-    console.log('grid menu');
-
-  
-    
-    
+    elem3.setAttribute("role", "alert");
 
 }
 
-
-
-function content2(){
-
-
-    var elem = document.getElementById("content2");
-    elem.style.display = "none";
-
-    // var elem4 = document.getElementById("content2");
-    // elem4.style.display = "block";
-
-}
-
-
-function content2S(){
-
-
-    // var elem = document.getElementById("content2");
-    // elem.style.display = "none";
-
-    var elem4 = document.getElementById("content2");
-    elem4.style.display = "block";
-
-}
 
 ///////////////////////////////////////////////////////save4Server////////////////////////////////////////////
 
@@ -274,14 +225,12 @@ function openDName() {
     var elem = document.getElementById("overlay3");
     elem.style.display = "block";
     elem.setAttribute("role", "alert");
-    content2();
 }
 
 function hideDName() {
     var elem = document.getElementById("overlay3");
     elem.style.display = "none";
     elem.setAttribute("role", "");
-    content2S();
 }
 
 function sendData(datatosend) {
@@ -356,32 +305,30 @@ function openDiagram() {
     }
 }
 
-function Table(json) {
+function Table(elem, labe) {
     console.log("in table constructor");
   
   if ( elem == null ) {
     
     console.log(currentClass);
     var elem = document.getElementById("overlay");
-    // var labe = document.getElementById("overlay");
+    var labe = document.getElementById("overlay");
     elem.style.display = "inline";
     
     globalFocus = this.id;
-    console.log("GFE" + this.elem);
+    console.log("GFE" + this.labe);
+    
     // CLASS SPECIFIC INITIALIZATION
     this.class = currentClass;
     this.id = "table" + tableCounter++;
-    // this.labe =$("");
-    this.elem = $("<div  alt='Table Object' id='" + this.id + "' class='" + this.class + "'><text style='font-size:10px;margin-top:15px'>drag me!</text><p id='" + this.id + "' class='" + this.class + " shapeText'> <b>Table: </b>"+ nameLabel +"<br><b>Guests:</b> </br>"+guestLabel+"</p></div>");
+    this.labe =$("");
+    this.elem = $("<div  alt='Table Object' id='" + this.id + "' class='" + this.class + "'>drag me!</br>Table:"+ nameLabel +"<br>Guests:"+guestLabel+"</div>");
+    //this.elem = $("<div  alt='Table Object' id='" + this.id + "' class='" + this.class + "'>drag me!<p id='" + this.id + "' class='" + this.class + " shapeText'> <b>Table: </b>"+ nameLabel +"<br><b>Guests:</b> </br>"+guestLabel+"</p></div>");
     // this.labe =$("<p id='" + this.id + "' class='" + this.class + " shapeText'><b>Table: </b>"+ nameLabel +"<br><b>Guests:</b> </br>"+guestLabel+"</p>");
     // this.elem = $("<div  alt='Table Object' id='" + this.id + "' class='" + this.class + "'><p id='dragText'>Drag me!</p></div>");
     $(this.elem).bind("touchstart", this.start.bind(this));
-    //$(this.elem).bind("touchstart", this.Tone.startMobile.bind(this));
     $(this.elem).bind("touchmove", this.moveMe.bind(this));
     $(this.elem).bind("touchend", this.endCheck.bind(this));
-
-    // mouseDown, ousemove and mouseup to make work in browser****with bindings for tonejs above
-
     // $(this.labe).bind("touchstart", this.start.bind(this));
     // $(this.labe).bind("touchmove", this.moveMe.bind(this));
     // $(this.labe).bind("touchend", this.endCheck.bind(this));
@@ -395,18 +342,17 @@ function Table(json) {
     
 
     $("#mainDiagram").append(this.elem);
-    // $("#mainDiagram").append(this.labe);
+    $("#mainDiagram").append(this.labe);
   }
   else {
     console.log("creating from elements", $(elem));
     this.class = $(elem).attr("class");
     this.id = $(elem).attr("id");
     this.elem = $(elem);
-    // this.labe = $(labe);
+    this.labe = $(labe);
     this.name = name;
     idArray.push(this.id);
     tableCounter++;
-    //$(this.elem).bind("touchstart", this.Tone.startMobile.bind(this));
     $(this.elem).bind("touchstart", this.start.bind(this));
     $(this.elem).bind("touchmove", this.moveMe.bind(this));
     $(this.elem).bind("touchend", this.endCheck.bind(this));
@@ -421,31 +367,23 @@ function Table(json) {
 
 //drag start
 Table.prototype.start = function(e) {
-    Tone.startMobile();
     Tone.Transport.start();
-
-
-    
-
-       
-    
     //synth.triggerAttack('F4');
     console.log("I'm in start");
 
     var orig = e.originalEvent;
     var pos = $(this.elem).position();
-    // var pos2 = $(this.labe).position();
-    
+    var pos2 = $(this.labe).position();
     this.elem.offset = {
         x: orig.changedTouches[0].pageX - pos.left,
         y: orig.changedTouches[0].pageY - pos.top
     };
 
 
-    // this.labe.offset = {
-    //     x: orig.changedTouches[0].pageX - pos2.left,
-    //     y: orig.changedTouches[0].pageY - pos2.top
-    // };
+    this.labe.offset = {
+        x: orig.changedTouches[0].pageX - pos2.left,
+        y: orig.changedTouches[0].pageY - pos2.top
+    };
 
 };
 
@@ -455,21 +393,26 @@ Table.prototype.moveMe = function(e) {
     console.log("CURRENTclass " + currentClass);
     e.preventDefault();
     var orig = e.originalEvent;
+
+    for (var i = 0; i < idArray.length; i++) {
+        if (localId != idArray[i]) {
+            collision($(this.elem), $("#" + idArray[i]));
+
+        }
+    };
+
+
+
+
     $(this.elem).css({
         top: orig.changedTouches[0].pageY - this.elem.offset.y,
         left: orig.changedTouches[0].pageX - this.elem.offset.x
-
     });
-      var incolumn = Math.floor((orig.changedTouches[0].pageX)/55);
-      var inrow = Math.floor((orig.changedTouches[0].pageY)/58)-2;
-      console.log(incolumn+ ","+inrow);
-      $('#trackmove').html(incolumn+ ","+inrow);
 
-      
-    // $(this.labe).css({
-    //     top: orig.changedTouches[0].pageY - this.labe.offset.y,
-    //     left: orig.changedTouches[0].pageX - this.labe.offset.x
-    // });
+    $(this.labe).css({
+        top: orig.changedTouches[0].pageY - this.labe.offset.y,
+        left: orig.changedTouches[0].pageX - this.labe.offset.x
+    });
 
 
 };
@@ -510,13 +453,14 @@ function collision(object1, object2) {
         synth2.triggerRelease();
     } else if (b1 >= y2 || y1 <= b2 || r1 >= x2 || x1 <= r2) {
         console.log("collided!");
-        player.start();
+        //alert("your table has collided with another!")
+        audio.play();
         synth2.triggerAttack('C4');
         synth.triggerAttack('C4');
-        console.log("haaay");
+        console.log("haaay")
     } else {
         console.log("other");
-        player.start();
+        audio.play();
         synth2.triggerRelease();
     }
 }

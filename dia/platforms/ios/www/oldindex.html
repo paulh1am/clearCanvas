@@ -13,81 +13,25 @@
     <script type="text/javascript" src="Tone.Preset.js"></script>
     <script type="text/javascript" src="socket.io.js"></script>
     <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript" src="mespeak.js"></script>
-  <script type="text/javascript">
-    // meSpeak.loadConfig("mespeak_config.json");
-    // meSpeak.loadVoice("voices/en/en.json");
-  
-    // function loadVoice(id) {
-    //   var fname="voices/"+id+".json";
-    //   meSpeak.loadVoice(fname, voiceLoaded);
-    // }
-  
-    // function voiceLoaded(success, message) {
-    //   if (success) {
-    //     alert("Voice loaded: "+message+".");
-    //   }
-    //   else {
-    //     alert("Failed to load a voice: "+message);
-    //   }
-    // }
-    // meSpeak.loadConfig("mespeak_config.json");
-    // meSpeak.loadVoice('en-us.json');
-    </script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-     <style>
-      #gridd {
-        /*width: device-width;
-        height: 100%;
-        margin-top: 10em ;
-        z-index: -100;
-        position: absolute;*/
-       /*top: -4em;*/
-      }
-    </style>
 </head>
 
 
 
 <body>
-  <div id="content3">
-              <div class="row">
 
-                  <a class="button " role="button" id="open" onclick="show2();">Open A Saved Diagram</a>
-              <!-- </div>
-              <div class="row"> -->
-                  <a class="button " role="button" aria-label="submit form" tabindex="0" id="open" onclick="openDName();">Save Current Diagram</a><h2 id="current">CANVAS</h2>
-                  <p style="display:inline;padding-left:4px">position</p><p id='trackmove'style="display:inline;padding-left:4px"></p>
-                   <a class="button " role="button" id="menu" href="/new_object">Menu</a>
-              </div>
-          </div>
-    
-    <!-- <div id="setform" style="margin-left:10px">
-      Define your grid
-      <form id="frm1">
-      Cols: <input type="text" name="col" value="22" id="frm1col">
-      Rows: <input type="text" name="row" value="22" id="frm1row">
-   
-      </form> 
-      <button type="button" data-role="none" onclick="doGrid($('#frm1row').val(),$('#frm1col').val())">create grid</button>
-    </div>   -->
+ 
+      <h1 style="font-family:'MyFont';font-size:2.5rem!important; text-align:center; margin-top:30px;"> Diagramming Tool</h1>
+      <h3 style="font-size:1rem!important;text-align:center; padding:0 20px 0 20px;">choose a shape by tapping a shape below</h3>
 
+  <div id="main" style="margin:80px 0 0 75px">
+        
+        <div id="content2">
 
-       <table id="gridd" class="ui-page" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
-      
-          <tbody>
-            
-          </tbody>
-        </table>
-    <div id="main" style="margin:80px 0 0 75px">
-        <div alt="square" class="base0 square" id="squareCreator"><p class="base">square</p></div>
-          <div alt="circle" class="base1 circle" id="circleCreator" data-role="none"><p class="base">circle</p></div>
+          <div alt="square" class="base0 square" id="squareCreator"><p class="base">square</p></div>
+          <div alt="circle" class="base1 circle" id="circleCreator"><p class="base">circle</p></div>
           <div id="mainDiagram"></div>
-  <div id="content2" style="display:none">
   
-  <!-- this is where added shapes get appended -->
 
 <!-- 
       <div style="margin-left=-30px" role="" id="magic">
@@ -98,7 +42,14 @@
 
       
       
-          
+          <div id="content3" style="margin-left:-30px;margin-top:250px">
+              <div class="row">
+                  <a class="button round" role="button" id="open" onclick="show2();">Open A Saved Diagram</a>
+              </div>
+              <div class="row">
+                  <a class="button round" role="button" aria-label="submit form" tabindex="0" id="open" onclick="openDName();">Save Current Diagram</a>
+              </div>
+          </div>
 
         </div>
 
@@ -134,7 +85,7 @@
                 <a class="button round" role="button" aria-label="submit form" tabindex="0" id="open" onclick="hide();">Cancel</a>          
            </div>
       </div>
-     
+
       <div role="" alt="Diagram Saver" id="overlay3" style="margin-top:-70px;margin-left:-20px">
            <div id="saveDia">
                 <p>Name Your Diagram</p>
@@ -150,7 +101,7 @@
                       <a class="button round" role="button" aria-label="submit form" tabindex="0" id="open" onclick="saveD();">save</a>          
                 </div>
       </div>
-       
+
 
      <!--  <audio src='bell.wav' id='sound'> -->
 
