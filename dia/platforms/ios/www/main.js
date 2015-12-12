@@ -218,6 +218,9 @@ function gridMenu() {
     
     $('#current').text('YOOO');
     console.log('grid menu');
+    $('#content3').hide()
+    $('#gridd').hide()
+    show();
 
   
     

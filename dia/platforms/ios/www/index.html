@@ -52,6 +52,7 @@
 
 
 <body>
+  <div class="maincontent">
   <div id="content3">
               <div class="row">
 
@@ -60,7 +61,8 @@
               <div class="row"> -->
                   <a class="button " role="button" aria-label="submit form" tabindex="0" id="open" onclick="openDName();">Save Current Diagram</a><h2 id="current">CANVAS</h2>
                   <p style="display:inline;padding-left:4px">position</p><p id='trackmove'style="display:inline;padding-left:4px"></p>
-                   <a class="button " role="button" id="menu" href="/new_object">Menu</a>
+                   <a class="button" role="button" id="menu" href="/new_object">Menu</a>
+                   <a class="button" role="button" id="menu" href="/new_object">Create</a>
               </div>
           </div>
     
@@ -75,7 +77,7 @@
     </div>   -->
 
 
-       <table id="gridd" class="ui-page" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+       <table id="gridd" class="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
       
           <tbody>
             
@@ -85,6 +87,7 @@
         <div alt="square" class="base0 square" id="squareCreator"><p class="base">square</p></div>
           <div alt="circle" class="base1 circle" id="circleCreator" data-role="none"><p class="base">circle</p></div>
           <div id="mainDiagram"></div>
+  
   <div id="content2" style="display:none">
   
   <!-- this is where added shapes get appended -->
